@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+<title>The Wedding Celebration — Iqra Naz & M. Subhan</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Great+Vibes&family=Montserrat:wght@400;500;600&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet"/>
+<style>
+/* ══════════════════════════════════════
+   RESET & VIP CORE THEME
+══════════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{width:100%;height:100%;overflow:hidden;
+  background:#050203;
+  font-family:'Montserrat', sans-serif;
+  color:#f5e8c8;
+}
+
+:root{
+  --royal-dark: #0a0406;
+  --gold-primary: #f3c66f;
+  --gold-dark: #b88728;
+  --gold-light: #fff0be;
+  --luxury-red: #500a18;
+  --vibrant-gold: linear-gradient(135deg, #b88728 0%, #f3c66f 45%, #fff0be 55%, #f3c66f 75%, #946615 100%);
+  --romantic-rose: linear-gradient(135deg, #4a0612 0%, #a3223b 40%, #e66b82 55%, #a3223b 75%, #30020a 100%);
+}
+
+/* ══════════════════════════════════════
+   SCROLL SNAP & SCREEN CONTAINERS
+══════════════════════════════════════ */
+#app{
+  position:fixed;inset:0;
+  overflow-y:scroll;
+  scroll-snap-type:y mandatory;
+  scroll-behavior:smooth;
+}
+#app::-webkit-scrollbar{display:none;}
+
+section{
+  width:100%;height:100vh;min-height:100dvh;
+  scroll-snap-align:start;scroll-snap-stop:always;
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+}
+
+/* 🎪 Side Indicators */
+#nav{
+  position:fixed;right:20px;top:50%;
+  transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:12px;
+  z-index:999;
+}
+.nd{
+  width:10px;height:10px;border-radius:50%;
+  border:2px solid rgba(243,198,111,0.4);
+  background:transparent;cursor:pointer;
+  transition:all .4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.nd.on{background:var(--gold-primary);border-color:var(--gold-primary);transform:scale(1.5);box-shadow:0 0 10px var(--gold-primary);}
+
+/* ══════════════════════════════════════
+   AESTHETIC DECORATIVE UTILS
+══════════════════════════════════════ */
+.gold-divider{
+  width:80%;max-width:280px;height:1px;
+  background:linear-gradient(90deg,transparent 0%,var(--gold-dark) 30%,var(--gold-light) 50%,var(--gold-dark) 70%,transparent 100%);
+  margin:18px auto;
+}
+.vip-tag{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(11px,3vw,14px);
+  letter-spacing:6px;text-transform:uppercase;
+  color:var(--gold-primary);
+  text-shadow:0 2px 4px rgba(0,0,0,0.8);
+  font-weight:900;
+}
+
+/* 🎬 Premium Smooth Transitions */
+[data-reveal]{opacity:0;transition:all 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);}
+[data-reveal="up"]{transform:translateY(50px) scale(0.95);}
+[data-reveal="down"]{transform:translateY(-40px);}
+[data-reveal="scale"]{transform:scale(0.85);}
+
+section.vis [data-reveal]{opacity:1 !important;transform:none !important;}
+
+.del-1{transition-delay:.15s!important;}
+.del-2{transition-delay:.35s!important;}
+.del-3{transition-delay:.55s!important;}
+.del-4{transition-delay:.75s!important;}
+.del-5{transition-delay:.95s!important;}
+
+/* 🛞 Floating Scroll Pointer */
+.scroll-cue{
+  position:absolute;bottom:25px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  opacity:.7;animation:cueBounce 2s infinite;
+  pointer-events:none;
+}
+.scroll-cue span{font-family:'Cinzel Decorative',serif;font-size:9px;letter-spacing:4px;color:var(--gold-primary);}
+.scroll-cue svg{width:22px;height:12px;fill:none;stroke:var(--gold-primary);stroke-width:2;}
+@keyframes cueBounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(6px);}}
+
+#pc{position:fixed;inset:0;pointer-events:none;z-index:1;}
+
+/* ══════════════════════════════════════
+   SLIDE 1 — THE ROYALE OPENING
+══════════════════════════════════════ */
+#s1{background:radial-gradient(circle at 50% 35%, #25050e 0%, var(--royal-dark) 70%);}
+
+.lantern-holder{position:absolute;top:0;left:0;right:0;height:100%;pointer-events:none;z-index:2;}
+.lantern-item{position:absolute;top:-10px;display:flex;flex-direction:column;align-items:center;}
+.lantern-item svg{animation:lanternSwing 4.5s ease-in-out infinite;transform-origin:top center;}
+@keyframes lanternSwing{0%,100%{transform:rotate(-5deg);}50%{transform:rotate(5deg);}}
+
+.main-title-wrap{position:relative;z-index:10;text-align:center;padding:0 20px;width:100%;max-width:540px;}
+
+.bismillah-text{
+  font-family:'Noto Nastaliq Urdu',serif;direction:rtl;
+  font-size:clamp(24px,7vw,36px);
+  background:var(--vibrant-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  display:block;margin-bottom:25px;line-height:2.2;
+}
+
+.name-bride{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(68px,20vw,105px);
+  line-height:.85;
+  background:var(--romantic-rose);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 4px 15px rgba(0,0,0,0.6));
+  display:block;
+}
+.ampersand{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(38px,11vw,55px);
+  color:var(--gold-primary);
+  display:block;margin:10px 0;opacity:0.8;
+}
+.name-groom{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(52px,15vw,82px);
+  line-height:.9;
+  background:var(--vibrant-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 4px 15px rgba(0,0,0,0.6));
+  display:block;margin-bottom:25px;
+}
+.badge-date{
+  display:inline-flex;align-items:center;gap:15px;
+  background:rgba(184,135,40,0.12);
+  border:1.5px solid var(--gold-primary);
+  padding:10px 30px;box-shadow:0 4px 20px rgba(0,0,0,0.5);
+}
+.badge-date span{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(13px,3.8vw,16px);
+  font-weight:700;letter-spacing:3px;color:var(--gold-light);
+}
+
+/* ══════════════════════════════════════
+   SLIDE 2 — INVITATION & FAMILY
+══════════════════════════════════════ */
+#s2{background:radial-gradient(circle at 50% 10%, #1c0309 0%, var(--royal-dark) 80%);}
+
+.mughal-archway{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:min(420px,96vw);height:100%;opacity:0.25;pointer-events:none;z-index:1;
+}
+
+.s2-content-box{position:relative;z-index:10;max-width:480px;width:100%;padding:0 24px;text-align:center;}
+.txt-glorious{font-size:clamp(15px,4.5vw,19px);font-style:italic;color:#fdf6e8;opacity:0.75;line-height:1.8;margin-bottom:8px;}
+.txt-venerable{font-size:clamp(16px,4.8vw,20px);font-weight:600;color:var(--gold-primary);letter-spacing:1px;line-height:1.6;}
+.txt-request{font-size:clamp(14px,4vw,17px);font-style:italic;color:#eacda3;opacity:0.7;margin:20px 0;line-height:1.7;}
+
+.highlight-bride{
+  font-family:'Cinzel Decorative',serif;font-weight:900;
+  font-size:clamp(38px,11vw,56px);line-height:1.1;
+  background:var(--romantic-rose);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  display:block;margin-bottom:6px;
+}
+.txt-relationship{font-size:clamp(13px,3.5vw,15px);font-style:italic;color:var(--gold-light);opacity:0.8;margin-bottom:15px;}
+.txt-connective{font-family:'Great Vibes',cursive;font-size:clamp(34px,9vw,45px);color:var(--gold-primary);margin:8px 0;}
+.highlight-groom{
+  font-family:'Cinzel Decorative',serif;font-weight:900;
+  font-size:clamp(32px,9vw,46px);line-height:1.1;
+  background:var(--vibrant-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  display:block;
+}
+
+/* ══════════════════════════════════════
+   SLIDE 3 — THE TIMELESS BOUND
+══════════════════════════════════════ */
+#s3{background:radial-gradient(circle at 50% 50%, #20060d 0%, var(--royal-dark) 75%);}
+.s3-content-box{position:relative;z-index:10;max-width:440px;width:100%;display:flex;flex-direction:column;align-items:center;padding:0 20px;}
+
+.vip-silhouette-frame{
+  width:clamp(250px,80vw,330px);
+  position:relative;margin-bottom:10px;
+  filter:drop-shadow(0 15px 35px rgba(80,10,24,0.6));
+}
+.vip-silhouette-frame svg{width:100%;height:auto;display:block;}
+
+.date-hero-block{text-align:center;}
+.txt-day-lbl{font-family:'Cinzel Decorative',serif;font-size:clamp(12px,3.2vw,15px);letter-spacing:8px;color:var(--gold-dark);text-transform:uppercase;}
+.txt-date-num{
+  font-family:'Cinzel Decorative',serif;font-weight:900;
+  font-size:clamp(76px,22vw,110px);line-height:0.85;
+  background:var(--vibrant-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+}
+.txt-month-lbl{font-family:'Great Vibes',cursive;font-size:clamp(36px,10vw,52px);color:#fff;line-height:0.9;margin-top:-5px;}
+
+/* ⏳ Luxury Countdown Grid */
+.timer-grid{display:flex;gap:10px;margin-top:20px;}
+.timer-cell{
+  background:linear-gradient(135deg, rgba(80,10,24,0.3) 0%, rgba(10,4,6,0.5) 100%);
+  border:1.5px solid rgba(243,198,111,0.25);
+  padding:12px 10px;text-align:center;min-width:70px;
+  box-shadow:0 8px 16px rgba(0,0,0,0.4);
+}
+.timer-val{font-family:'Cinzel Decorative',serif;font-weight:700;font-size:clamp(22px,6.8vw,32px);color:#fff;line-height:1;}
+.timer-lbl{font-size:9px;letter-spacing:2px;color:var(--gold-primary);text-transform:uppercase;margin-top:5px;font-weight:500;}
+
+/* ══════════════════════════════════════
+   SLIDE 4 — CELEBRATION SCHEDULE
+══════════════════════════════════════ */
+#s4{background:linear-gradient(180deg, #fcedd0 0%, #fffbf2 50%, #fcedd0 100%);color:#22090f;}
+#s4::before, #s4::after{
+  content:'';position:absolute;left:0;right:0;height:6px;
+  background:linear-gradient(90deg,transparent,var(--luxury-red),var(--gold-dark),var(--luxury-red),transparent);
+}
+#s4::before{top:0;}#s4::after{bottom:0;}
+
+.s4-content-box{position:relative;z-index:10;max-width:440px;width:100%;padding:0 24px;text-align:center;}
+.schedule-eyebrow{font-family:'Cinzel Decorative',serif;font-size:clamp(12px,3.2vw,15px);letter-spacing:6px;color:var(--luxury-red);font-weight:700;}
+.schedule-title{font-family:'Cinzel Decorative',serif;font-weight:900;font-style:italic;font-size:clamp(42px,12vw,60px);color:#100205;line-height:1.1;margin:5px 0;}
+.schedule-sub{font-size:clamp(15px,4.5vw,18px);font-style:italic;color:rgba(80,10,24,0.75);margin-bottom:25px;font-weight:500;}
+
+.luxury-venue-card{
+  background:linear-gradient(135deg, #1f040a 0%, #0a0103 100%);
+  border:1.5px solid var(--gold-dark);
+  padding:18px 20px;margin-bottom:28px;position:relative;
+  box-shadow:0 10px 25px rgba(80,10,24,0.25);
+}
+.luxury-venue-card::before, .luxury-venue-card::after{
+  content:'';position:absolute;width:16px;height:16px;border-color:var(--gold-primary);border-style:solid;
+}
+.luxury-venue-card::before{top:-2px;left:-2px;border-width:3px 0 0 3px;}
+.luxury-venue-card::after{bottom:-2px;right:-2px;border-width:0 3px 3px 0;}
+.venue-lbl{font-family:'Cinzel Decorative',serif;font-size:10px;letter-spacing:5px;color:rgba(243,198,111,0.6);text-transform:uppercase;}
+.venue-name{font-family:'Cinzel Decorative',serif;font-weight:700;font-size:clamp(22px,6.5vw,30px);background:var(--vibrant-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+
+/* Timeline Track */
+.timeline-box{position:relative;display:flex;flex-direction:column;gap:5px;}
+.timeline-box::before{
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:1.5px;
+  background:linear-gradient(180deg,transparent,var(--gold-dark) 20%,var(--gold-dark) 80%,transparent);transform:translateX(-50%);
+}
+.timeline-row{display:grid;grid-template-columns:1fr 40px 1fr;align-items:center;padding:12px 0;}
+.time-left{text-align:right;padding-right:20px;}
+.time-left .clock-hr{font-family:'Cinzel Decorative',serif;font-weight:900;font-size:clamp(22px,6vw,28px);color:var(--luxury-red);line-height:1;}
+.time-left .clock-ampm{font-size:12px;font-weight:600;color:rgba(80,10,24,0.6);text-transform:uppercase;}
+
+.time-right{text-align:left;padding-left:20px;}
+.time-right .evt-title{font-family:'Cinzel Decorative',serif;font-size:clamp(12px,3.5vw,14px);letter-spacing:2px;color:var(--luxury-red);text-transform:uppercase;font-weight:900;}
+.time-right .evt-desc{font-size:clamp(13px,3.8vw,15px);font-style:italic;color:rgba(16,2,5,0.65);margin-top:2px;}
+
+.timeline-crest{width:14px;height:14px;background:var(--gold-dark);transform:rotate(45deg);margin:0 auto;box-shadow:0 0 6px rgba(0,0,0,0.2);border:2px solid #fff;}
+.timeline-crest.highlighted{background:var(--luxury-red);}
+
+/* ══════════════════════════════════════
+   SLIDE 5 — RSVP & HONOURABLE INVITATION
+══════════════════════════════════════ */
+#s5{background:radial-gradient(circle at 50% 80%, #20060d 0%, var(--royal-dark) 75%);}
+.s5-content-box{position:relative;z-index:10;max-width:440px;width:100%;padding:0 24px;text-align:center;}
+
+.rsvp-header{font-family:'Cinzel Decorative',serif;font-weight:900;font-size:clamp(42px,12vw,62px);background:var(--vibrant-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1;}
+.rsvp-sub{font-size:clamp(15px,4.2vw,18px);font-style:italic;color:var(--gold-light);opacity:0.7;margin:12px 0 22px;}
+
+.host-showcase-box{
+  border:1px solid rgba(243,198,111,0.3);
+  background:linear-gradient(135deg, rgba(184,135,40,0.08) 0%, rgba(80,10,24,0.15) 100%);
+  padding:20px;margin-bottom:20px;position:relative;
+  box-shadow:0 12px 28px rgba(0,0,0,0.5);
+}
+.host-showcase-box::before, .host-showcase-box::after{
+  content:'';position:absolute;width:14px;height:14px;border-color:rgba(243,198,111,0.5);border-style:solid;
+}
+.host-showcase-box::before{top:-1px;left:-1px;border-width:2px 0 0 2px;}
+.host-showcase-box::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0;}
+.host-title-lbl{font-family:'Cinzel Decorative',serif;font-size:10px;letter-spacing:4px;color:var(--gold-primary);font-weight:700;display:block;margin-bottom:10px;}
+.host-names{font-size:clamp(16px,4.5vw,20px);color:#fff;line-height:1.8;font-weight:500;}
+
+.contacts-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:25px;}
+.contact-card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(243,198,111,0.15);
+  padding:15px 10px;text-align:center;transition:all 0.3s;
+}
+.contact-card .c-lbl{font-family:'Cinzel Decorative',serif;font-size:9px;letter-spacing:3px;color:rgba(255,240,190,0.5);display:block;margin-bottom:6px;}
+.contact-card .c-num{font-size:clamp(14px,4vw,17px);font-weight:600;color:var(--gold-primary);letter-spacing:0.5px;}
+
+.arabic-dua{
+  font-family:'Noto Nastaliq Urdu',serif;direction:rtl;
+  font-size:clamp(20px,6vw,28px);background:var(--vibrant-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  display:block;margin-bottom:12px;line-height:2.2;
+}
+.closing-blessings{font-size:clamp(13px,3.8vw,16px);font-style:italic;color:rgba(255,245,220,0.6);line-height:1.7;}
+</style>
+</head>
+<body>
+
+<canvas id="pc"></canvas>
+
+<div id="nav">
+  <div class="nd on" onclick="scrollToSlide(0)"></div>
+  <div class="nd"    onclick="scrollToSlide(1)"></div>
+  <div class="nd"    onclick="scrollToSlide(2)"></div>
+  <div class="nd"    onclick="scrollToSlide(3)"></div>
+  <div class="nd"    onclick="scrollToSlide(4)"></div>
+</div>
+
+<div id="app">
+
+<section id="s1">
+  <div class="lantern-holder" id="lth1"></div>
+  <div class="main-title-wrap">
+    <span class="bismillah-text" data-reveal="down" style="transition-delay:.1s">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+    
+    <div style="margin-bottom:15px;" data-reveal="scale" class="del-1">
+      <span class="vip-tag">Barat Invitation</span>
+      <div class="gold-divider"></div>
+    </div>
+
+    <span class="name-bride" data-reveal="up" class="del-2">Iqra Naz</span>
+    <span class="ampersand"  data-reveal="scale" class="del-3">&amp;</span>
+    <span class="name-groom" data-reveal="up" class="del-4">Muhammad Subhan</span>
+
+    <div class="gold-divider" data-reveal="scale" class="del-4"></div>
+
+    <div class="badge-date" data-reveal="up" class="del-5">
+      <span>Sunday · 19 July 2026</span>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <svg viewBox="0 0 24 14"><path d="M2 2L12 12L22 2" stroke-linecap="round"/></svg>
+  </div>
+</section>
+
+<section id="s2">
+  <svg class="mughal-archway" viewBox="0 0 400 600" fill="none">
+    <path d="M10 600 L10 250 Q10 20 200 20 Q390 20 390 250 L390 600Z" stroke="url(#goldGrad)" stroke-width="2"/>
+    <path d="M10 250 Q25 220 40 250 Q55 220 70 250 Q85 220 100 250 Q115 220 130 250 Q145 220 160 250 Q175 220 190 240 Q205 220 220 250 Q235 220 250 250 Q265 220 280 250 Q295 220 310 250 Q325 220 340 250 Q355 220 370 250 Q385 220 390 250" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <defs>
+      <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#b88728"/><stop offset="50%" stop-color="#f3c66f"/><stop offset="100%" stop-color="#946615"/>
+      </linearGradient>
+    </defs>
+  </svg>
+  <div class="lantern-holder" id="lth2"></div>
+
+  <div class="s2-content-box">
+    <p class="txt-glorious" data-reveal="down" style="transition-delay:.1s">In the Name of Allah, The Most Beneficent &amp; Merciful</p>
+    <p class="txt-glorious" data-reveal="down" style="transition-delay:.2s">The Family Members of</p>
+    <p class="txt-venerable" data-reveal="up" style="transition-delay:.3s">Late Haji Muhammad Usman Paradhry Walay<br>&amp;<br>Late Muhammad Younus Paradhry Walay</p>
+    <p class="txt-request" data-reveal="fade" style="transition-delay:.4s">Request the distinct pleasure of your august presence at the Wedding Auspices of their beloved daughter</p>
+
+    <div class="gold-divider" data-reveal="scale" style="transition-delay:.45s"></div>
+
+    <span class="highlight-bride" data-reveal="scale" style="transition-delay:.5s">Iqra Naz</span>
+    <span class="txt-relationship" data-reveal="fade" style="transition-delay:.6s">D/O Mr. &amp; Mrs. M. Rizwan Paradhry Walay</span>
+    
+    <span class="txt-connective" data-reveal="fade" style="transition-delay:.65s">with</span>
+    
+    <span class="highlight-groom" data-reveal="scale" style="transition-delay:.7s">Muhammad Subhan</span>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="s3-content-box">
+    
+    <div class="vip-silhouette-frame" data-reveal="scale" style="transition-delay:.15s">
+      <svg viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="160" cy="120" r="105" fill="rgba(80,10,24,0.15)" stroke="url(#goldGrad)" stroke-width="1.5"/>
+        <path d="M55 240 Q55 65 160 30 Q265 65 265 240" stroke="rgba(243,198,111,0.25)" stroke-width="1"/>
+        
+        <g transform="translate(155,50)">
+          <ellipse cx="25" cy="15" rx="14" ry="7" fill="#150508"/>
+          <ellipse cx="25" cy="28" rx="11" ry="12" fill="#2d1217"/>
+          <path d="M5 65 Q10 45 25 43 Q40 45 45 65 L48 190 L2 190Z" fill="#fffaf0"/>
+          <path d="M2 190 L5 65" stroke="url(#goldGrad)" stroke-width="1.5"/>
+          <path d="M48 190 L45 65" stroke="url(#goldGrad)" stroke-width="1.5"/>
+          <rect x="23" y="43" width="4" height="45" fill="#f3c66f"/>
+        </g>
+        
+        <g transform="translate(100,48)">
+          <ellipse cx="25" cy="16" rx="12" ry="13" fill="#150508"/>
+          <path d="M8 15 Q12 4 25 6 Q38 4 42 15 Q48 45 45 90 L5 90Z" fill="rgba(163,34,59,0.7)"/>
+          <path d="M10 15 Q25 8 40 15" stroke="url(#goldGrad)" stroke-width="1"/>
+          <path d="M8 65 Q3 110 -2 192 L52 192 Q47 110 42 65Z" fill="#800c22"/>
+          <path d="M-2 192 Q25 200 52 192" stroke="url(#goldGrad)" stroke-width="2"/>
+        </g>
+
+        <path d="M155 110 C155 107 157 105 160 105 C163 105 165 107 165 110 C165 114 160 118 160 120 C160 118 155 114 155 110 Z" fill="#f3c66f"/>
+      </svg>
+    </div>
+
+    <div class="date-hero-block">
+      <span class="txt-day-lbl" data-reveal="fade" style="transition-delay:.3s">Sunday</span>
+      <span class="txt-date-num" data-reveal="up" style="transition-delay:.4s">19</span>
+      <span class="txt-month-lbl" data-reveal="up" style="transition-delay:.5s">July 2026</span>
+    </div>
+
+    <div class="timer-grid" data-reveal="up" style="transition-delay:.6s">
+      <div class="timer-cell"><span class="timer-val" id="d_day">--</span><span class="timer-lbl">Days</span></div>
+      <div class="timer-cell"><span class="timer-val" id="d_hour">--</span><span class="timer-lbl">Hrs</span></div>
+      <div class="timer-cell"><span class="timer-val" id="d_min">--</span><span class="timer-lbl">Min</span></div>
+      <div class="timer-cell"><span class="timer-val" id="d_sec">--</span><span class="timer-lbl">Sec</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="s4-content-box">
+    <span class="schedule-eyebrow" data-reveal="down" style="transition-delay:.1s">Barat Ceremony</span>
+    <span class="schedule-title" data-reveal="up" style="transition-delay:.25s">Schedule</span>
+    <span class="schedule-sub" data-reveal="fade" style="transition-delay:.35s">The Blessed Itinerary</span>
+
+    <div class="luxury-venue-card" data-reveal="scale" style="transition-delay:.45s">
+      <span class="venue-lbl">Venue Ordered</span>
+      <span class="venue-name">White Gold Hall</span>
+    </div>
+
+    <div class="timeline-box" data-reveal="up" style="transition-delay:.55s">
+      <div class="timeline-row">
+        <div class="time-left"><span class="clock-hr">09:00</span><span class="clock-ampm">PM</span></div>
+        <div class="timeline-crest"></div>
+        <div class="time-right"><span class="evt-title">Baraat Arrival</span><span class="evt-desc">Warm Welcome</span></div>
+      </div>
+      <div class="timeline-row">
+        <div class="time-left"><span class="clock-hr">10:00</span><span class="clock-ampm">PM</span></div>
+        <div class="timeline-crest"></div>
+        <div class="time-right"><span class="evt-title">Royal Feast</span><span class="evt-desc">Dinner Reception</span></div>
+      </div>
+      <div class="timeline-row">
+        <div class="time-left"><span class="clock-hr">11:00</span><span class="clock-ampm">PM</span></div>
+        <div class="timeline-crest highlighted"></div>
+        <div class="time-right"><span class="evt-title" style="color:#800c22;">Rukhsati</span><span class="evt-desc">Solemn Farewell</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="lantern-holder" id="lth5"></div>
+
+  <div class="s5-content-box">
+    <span class="vip-tag" data-reveal="down" style="transition-delay:.1s">R. S. V. P.</span>
+    <span class="rsvp-header" data-reveal="up" style="transition-delay:.25s">Cordial Invite</span>
+    <p class="rsvp-sub" data-reveal="fade" style="transition-delay:.35s">Your presence will render unmatched joy to our celebratory memories.</p>
+
+    <div class="host-showcase-box" data-reveal="scale" style="transition-delay:.45s">
+      <span class="host-title-lbl">Gracious Hosts</span>
+      <p class="host-names">Mr. &amp; Mrs. M. Rizwan<br/>M. Ahsan Raza<br/>&amp; All Family Members</p>
+    </div>
+
+    <div class="contacts-grid" data-reveal="up" style="transition-delay:.55s">
+      <div class="contact-card">
+        <span class="c-lbl">Inquiries</span>
+        <span class="c-num">0320-8350885</span>
+      </div>
+      <div class="contact-card">
+        <span class="c-lbl">Inquiries</span>
+        <span class="c-num">0323-2618437</span>
+      </div>
+    </div>
+
+    <div class="gold-divider" data-reveal="scale" style="transition-delay:.6s"></div>
+
+    <span class="arabic-dua" data-reveal="up" style="transition-delay:.65s">جزاکم اللہ خیرًا</span>
+    <p class="closing-blessings" data-reveal="fade" style="transition-delay:.75s">
+      May Allah bless Iqra &amp; Subhan with endless love, affection, and profound barakah.
+    </p>
+  </div>
+</section>
+
+</div>
+
+<script>
+/* ════════════════════════════════════════
+   🎨 CANVAS EFFECTS : CELESTIAL AMBIENCE
+════════════════════════════════════════ */
+const canvas = document.getElementById('pc');
+const ctx = canvas.getContext('2d');
+let w, h;
+
+const resizeCanvas = () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; };
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+// Premium Twinkling Stars / Glitter dust
+const sparkles = Array.from({ length: 140 }, () => ({
+  x: Math.random() * window.innerWidth,
+  y: Math.random() * window.innerHeight,
+  radius: 0.5 + Math.random() * 1.5,
+  vy: -0.05 - Math.random() * 0.1,
+  vx: (Math.random() - 0.5) * 0.05,
+  alpha: Math.random(),
+  speedAlpha: 0.003 + Math.random() * 0.005,
+  color: Math.random() > 0.6 ? '#f3c66f' : Math.random() > 0.3 ? '#e66b82' : '#fffbfa'
+}));
+
+// Floating Velvet Flower Petals
+const velvetPetals = Array.from({ length: 20 }, () => ({
+  x: Math.random() * window.innerWidth,
+  y: Math.random() * window.innerHeight,
+  dimension: 6 + Math.random() * 12,
+  vy: 0.4 + Math.random() * 0.6,
+  vx: (Math.random() - 0.5) * 0.2,
+  rotation: Math.random() * 360,
+  rotationSpeed: (Math.random() - 0.5) * 1.2,
+  alpha: 0.3 + Math.random() * 0.5,
+  color: Math.random() > 0.4 ? 'rgba(163,34,59,' : 'rgba(243,198,111,'
+}));
+
+function animateAmbientEffects() {
+  ctx.clearRect(0, 0, w, h);
+  
+  // Render Sparkles
+  sparkles.forEach(s => {
+    s.x += s.vx; s.y += s.vy; s.alpha += s.speedAlpha;
+    if (s.alpha > 1 || s.alpha < 0) s.speedAlpha *= -1;
+    if (s.y < -5) { s.y = h + 5; s.x = Math.random() * w; s.alpha = 0; }
+    
+    ctx.save();
+    ctx.globalAlpha = Math.max(0, s.alpha);
+    ctx.beginPath();
+    ctx.arc(s.x % w, s.y % h, s.radius, 0, Math.PI * 2);
+    ctx.fillStyle = s.color;
+    ctx.fill();
+    ctx.restore();
+  });
+
+  // Render Petals
+  velvetPetals.forEach(p => {
+    p.x += p.vx; p.y += p.vy; p.rotation += p.rotationSpeed;
+    if (p.y > h + 25) { p.y = -25; p.x = Math.random() * w; }
+
+    ctx.save();
+    ctx.globalAlpha = p.alpha;
+    ctx.translate(p.x % w, p.y % h);
+    ctx.rotate(p.rotation * Math.PI / 180);
+    ctx.beginPath();
+    ctx.ellipse(0, 0, p.dimension * 0.45, p.dimension, 0, 0, Math.PI * 2);
+    ctx.fillStyle = p.color + '0.65)';
+    ctx.fill();
+    ctx.restore();
+  });
+
+  requestAnimationFrame(animateAmbientEffects);
+}
+animateAmbientEffects();
+
+/* ════════════════════════════════════════
+   🏮 DYNAMIC ROYAL LANTERNS
+════════════════════════════════════════ */
+function generateVIPLanterns(containerId, configuration) {
+  const host = document.getElementById(containerId);
+  if (!host) return;
+  
+  configuration.forEach(([horizontalPct, wireHeight, sizePx]) => {
+    const box = document.createElement('div');
+    box.className = 'lantern-item';
+    box.style.left = horizontalPct + '%';
+    
+    box.innerHTML = `
+      <svg width="${sizePx}" height="${wireHeight + (sizePx * 1.6)}" viewBox="0 0 50 ${wireHeight + 70}" fill="none">
+        <line x1="25" y1="0" x2="25" y2="${wireHeight}" stroke="#f3c66f" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.6"/>
+        <g transform="translate(4, ${wireHeight})">
+          <rect x="16" y="2" width="10" height="4" rx="1" fill="#b88728" opacity="0.8"/>
+          <ellipse cx="21" cy="28" rx="16" ry="20" fill="rgba(243,198,111,0.12)"/>
+          <ellipse cx="21" cy="28" rx="10" ry="14" fill="rgba(255,240,190,0.18)"/>
+          <circle cx="21" cy="26" r="4" fill="#fffbfa" filter="drop-shadow(0 0 8px #f3c66f)"/>
+          <path d="M5 22 Q21 18 37 22 M5 34 Q21 38 37 34" stroke="#b88728" stroke-width="1" fill="none" opacity="0.5"/>
+          <rect x="15" y="48" width="12" height="4" rx="1" fill="#b88728" opacity="0.8"/>
+        </g>
+      </svg>
+    `;
+    host.appendChild(box);
+  });
+}
+generateVIPLanterns('lth1', [[8, 60, 36], [26, 40, 26], [74, 45, 28], [92, 65, 34]]);
+generateVIPLanterns('lth2', [[6, 45, 26], [94, 55, 28]]);
+generateVIPLanterns('lth5', [[10, 50, 28], [90, 50, 28]]);
+
+/* ════════════════════════════════════════
+   🎬 VIEWPORT TRACKER & INTERACTION
+════════════════════════════════════════ */
+const structuralSlides = document.querySelectorAll('section');
+const paginationDots = document.querySelectorAll('.nd');
+
+const slideObserver = new IntersectionObserver(elements => {
+  elements.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('vis');
+      const activeIndex = Array.from(structuralSlides).indexOf(entry.target);
+      paginationDots.forEach((dot, index) => dot.classList.toggle('on', activeIndex === index));
+    }
+  });
+}, { threshold: 0.55 });
+
+structuralSlides.forEach(slide => slideObserver.observe(slide));
+
+function scrollToSlide(slideIndex) {
+  document.getElementById('app').children[slideIndex].scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ════════════════════════════════════════
+   ⏳ MATRIMONIAL PRECISION COUNTDOWN
+════════════════════════════════════════ */
+function updateCountdownClocks() {
+  const targetDate = new Date('2026-07-19T21:00:00').getTime();
+  const now = new Date().getTime();
+  const timeRemaining = targetDate - now;
+
+  if (timeRemaining <= 0) {
+    ['d_day', 'd_hour', 'd_min', 'd_sec'].forEach(id => document.getElementById(id).textContent = '00');
+    return;
+  }
+
+  const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+  document.getElementById('d_day').textContent = String(days).padStart(2, '0');
+  document.getElementById('d_hour').textContent = String(hours).padStart(2, '0');
+  document.getElementById('d_min').textContent = String(minutes).padStart(2, '0');
+  document.getElementById('d_sec').textContent = String(seconds).padStart(2, '0');
+}
+setInterval(updateCountdownClocks, 1000);
+updateCountdownClocks();
+</script>
+</body>
+</html>
